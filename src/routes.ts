@@ -5,8 +5,6 @@ import { makeGithubStudentUrl } from './github';
 export function addRoutes(app: Express): void {
   app.get('/', async (req, res): Promise<void> => {
     if (!req.isAuthenticated() || !req.user) {
-      res.set('Cache-Control', 'no-store');
-
       res.redirect(302, '/login');
       return;
     }

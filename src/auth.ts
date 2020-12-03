@@ -46,6 +46,7 @@ export function addAuthRoutes(app: Express): void {
         next(err);
         return;
       }
+      console.log('user', user);
       if (!user) {
         res.redirect('/login');
         return;
@@ -55,6 +56,7 @@ export function addAuthRoutes(app: Express): void {
           next(err);
           return;
         }
+        console.log('ok');
         res.redirect('/');
       });
     })(req, res, next);
