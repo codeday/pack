@@ -6,7 +6,7 @@ import config from './config';
 
 const app = express();
 app.set('etag', false);
-app.use(nocache);
+app.use(nocache());
 registerPassport(app);
 addAuthRoutes(app);
 addRoutes(app);
