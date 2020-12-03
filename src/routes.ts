@@ -1,4 +1,5 @@
 import { Express } from 'express';
+import { Profile } from 'passport-auth0';
 import { makeGithubStudentUrl } from './github';
 
 export function addRoutes(app: Express): void {
@@ -9,7 +10,7 @@ export function addRoutes(app: Express): void {
     }
 
     try {
-      const { nickname } = req.user;
+      const { nickname } = <Profile>req.user;
       const studentUrl = await makeGithubStudentUrl(nickname);
       if (studentUrl && studentUrl.startsWith('http')) {
         res.redirect(studentUrl);

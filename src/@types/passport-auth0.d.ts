@@ -11,6 +11,7 @@ declare module 'passport-auth0' {
     id: string
     displayName: string
     gender?: string
+    nickname: string
     ageRange?: {
       min: number
       max?: number
