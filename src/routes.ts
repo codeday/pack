@@ -15,10 +15,7 @@ export function addRoutes(app: Express): void {
       const lastProject = await getLastProjectCreated(nickname);
       const timeSinceLastProject = lastProject?.diffNow().as('months');
       if (!timeSinceLastProject || (-1 * timeSinceLastProject) > 6.5) {
-        res.send(
-          `Sorry, we can only provde expedited access to the Github Student Pack for students who recently`
-          + ` participated in a CodeDay program. You can still apply for access directly on Github's student website.`,
-        );
+        res.redirect(302, 'https://www.codeday.org/help/article/6out0c4pmf2oP9Iy1nR1i4');
         return;
       }
 
